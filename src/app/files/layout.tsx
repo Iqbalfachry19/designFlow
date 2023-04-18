@@ -8,9 +8,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex bg-[#2c2c2c] ">
+      <body className="flex bg-[#2c2c2c] overflow-y-hidden ">
         <Sidebar />
-        <div className="w-full">
+        <div className="w-full ">
           <Header />
           {children}
         </div>

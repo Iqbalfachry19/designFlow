@@ -8,7 +8,7 @@ function Sidebar() {
     setOpen(!open);
   };
   return (
-    <div className="flex flex-col items-center justify-center text-white">
+    <div className="flex flex-col items-center justify-center text-white ">
       <div
         className={
           open
@@ -49,7 +49,7 @@ function Sidebar() {
           </div>
         </>
       )}
-      <div className="flex flex-col w-full border border-[#444]">
+      <div className="flex flex-col w-full border h-screen border-[#444]">
         <span className="flex items-center mt-2 px-4 py-2 space-x-2  bg-[#4A5878] ">
           <ClockIcon className="h-3 w-3 " />
           <span>Recents</span>
