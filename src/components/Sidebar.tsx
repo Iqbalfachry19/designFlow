@@ -36,7 +36,13 @@ function Sidebar() {
           <span className="text-xs select-none">iqbal.fachry19@gmail.com</span>
         </div>
         <div className="pl-10">
-          <ChevronDownIcon className="h-3 w-3 translate-y-0 duration-150  group-hover:translate-y-1 group-hover:duration-150 group-hover:ease-in" />
+          <ChevronDownIcon
+            className={
+              open
+                ? 'h-3 w-3  translate-y-1   '
+                : 'h-3 w-3 translate-y-0 duration-150  group-hover:translate-y-1 group-hover:duration-150 group-hover:ease-in'
+            }
+          />
         </div>
       </div>
       {open && (
