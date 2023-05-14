@@ -1,16 +1,16 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
+import Login from '@/components/Login';
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = localFont({ src: './Whyte-Regular.woff2', display: 'swap' });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col ">
-      <div className="flex">
+    <main className={`flex min-h-screen w-full flex-col ${inter.className} `}>
+      <div className="flex pt-6 justify-between px-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 38 57"
-          className="w-20 h-20"
+          className="w-14 h-14"
           aria-label="Homepage"
         >
           <path
@@ -32,12 +32,74 @@ export default function Home() {
           ></path>
         </svg>
         <nav>
-          <ul className="flex space-x-2">
-            <li>Products</li>
-            <li>Enterprise</li>
+          <ul className="flex space-x-4 items-center">
+            <li>
+              <span className="flex items-center gap-2">
+                Products
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-caret-down-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
+              </span>
+            </li>
+            <li>
+              <span className="flex items-center gap-2">
+                Enterprise{' '}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-caret-down-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
+              </span>
+            </li>
             <li>Pricing</li>
-            <li>Community</li>
-            <li>Company</li>
+            <li>
+              {' '}
+              <span className="flex items-center gap-2">
+                Community
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-caret-down-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
+              </span>
+            </li>
+            <li>
+              {' '}
+              <span className="flex items-center gap-2">
+                Company
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-caret-down-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
+              </span>
+            </li>
+            <Login />
+            <li className="text-white bg-black px-8 py-2 font-bold rounded-lg">
+              Get Started for free
+            </li>
           </ul>
         </nav>
       </div>
