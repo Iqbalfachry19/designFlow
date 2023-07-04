@@ -5,15 +5,12 @@ import {
 } from '@heroicons/react/24/solid';
 
 import Image from 'next/image';
+
 function Header() {
   return (
     <div className="border p-2 border-[rgb(68,68,68)] w-full flex justify-between ">
-      <div className="flex items-center space-x-2 p-1 bg-[#383838] rounded-lg w-80 focus-within:outline focus-within:outline-blue-400">
-        <MagnifyingGlassIcon className="text-white w-7 h-7" />
-        <input
-          className="bg-[#383838] flex-1 outline-none  caret-white"
-          placeholder="Search files, teams, or people"
-        />
+      <div className="flex items-center ml-2">
+        <p className="text-white">Recents</p>
       </div>
       <div className="flex items-center space-x-2">
         <GlobeAltIcon className="text-white w-7 h-7" />
