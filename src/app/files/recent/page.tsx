@@ -11,7 +11,9 @@ export const metadata = {
 function page() {
   return (
     <div className={`text-white ${inter.className}`}>
-      <div className="p-4 border-[rgb(68,68,68)] border-b">Recently viewed</div>
+      <div className="p-4 border-[rgb(68,68,68)] border-b bg-[383838]">
+        Recently viewed
+      </div>
       <div className="flex">
         <div className="border-[rgb(68,68,68)] rounded-lg p-4 m-4 border">
           <p>New design file</p>
