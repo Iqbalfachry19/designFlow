@@ -13,8 +13,15 @@ function Header() {
         <p className="text-white">Recents</p>
       </div>
       <div className="flex items-center space-x-2">
-        <GlobeAltIcon className="text-white w-7 h-7" />
-        <p className="text-white">Explore Comunity</p>
+        <button className="bg-blue-500 p-2 rounded-[6px] text-white">
+          + Design file
+        </button>
+        <button className="bg-purple-500 p-2 rounded-[6px] text-white">
+          + FigJam board
+        </button>
+        <button className="border broder-white p-2 rounded-[6px] text-white">
+          Import
+        </button>
         <div className="flex items-center space-x-2 relative">
           <BellIcon className="text-white w-6 h-6" />
           <div className="absolute bg-red-500 w-2 h-2 rounded-full top-0 right-1  z-10" />

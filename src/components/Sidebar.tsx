@@ -1,6 +1,10 @@
 'use client';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { ClockIcon, DocumentIcon } from '@heroicons/react/24/outline';
+import {
+  ClockIcon,
+  DocumentIcon,
+  GlobeAltIcon,
+} from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import Searchbar from './Searchbar';
 import Logo from './Logo';
@@ -10,12 +14,12 @@ function Sidebar() {
     setOpen(!open);
   };
   return (
-    <div className="flex flex-col items-center justify-center text-white ">
+    <div className="flex flex-col items-center  justify-center text-white ">
       <div
         className={
           open
-            ? 'active flex items-center border-[#444] group hover:cursor-default  [&.active]:bg-black hover:bg-black p-2 space-x-2 border'
-            : 'flex items-center border-[#444] group hover:cursor-default  [&.active]:bg-black hover:bg-black p-2 space-x-2 border'
+            ? 'active flex items-center border-[#444] group hover:cursor-default  w-64 [&.active]:bg-black hover:bg-black p-2 space-x-2 border'
+            : 'flex items-center border-[#444] group hover:cursor-default  w-64  [&.active]:bg-black hover:bg-black p-2 space-x-2 border'
         }
         onClick={clickHandler}
       >
@@ -60,6 +64,10 @@ function Sidebar() {
           <span>Drafts</span>
         </span>
         <hr className="border border-[#444] mt-2 bg" />
+        <div className="flex space-x-2 mt-2">
+          <GlobeAltIcon className="text-white w-7 h-7" />
+          <p className="text-white">Explore Comunity</p>
+        </div>
       </div>
     </div>
   );

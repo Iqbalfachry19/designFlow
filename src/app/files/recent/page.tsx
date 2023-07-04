@@ -11,30 +11,34 @@ export const metadata = {
 function page() {
   return (
     <div className={`text-white ${inter.className}`}>
-      <div className="p-4 border-[rgb(68,68,68)] border-b bg-[383838]">
-        Recently viewed
+      <div className="p-4 space-x-2 flex justify-between items-center  ">
+        <div className="flex">
+          <div>
+            <p className="bg-[#383838] p-2 rounded-[6px]">Recently viewed</p>
+          </div>
+          <div>
+            <p className="text-gray-200 p-2 rounded-[6px]">Shared files</p>
+          </div>
+          <div>
+            <p className="text-gray-200 p-2 rounded-[6px]">Shared projects</p>
+          </div>
+        </div>
+        <div className="p-4 flex space-x-2">
+          <div className="flex items-center space-x-2">
+            <p>All organizations </p>
+            <ChevronDownIcon className="text-white h-3 w-3 " />
+          </div>
+          <div className="flex items-center space-x-2">
+            <p>All files </p>
+            <ChevronDownIcon className="text-white h-3 w-3 " />
+          </div>
+          <div className="flex items-center space-x-2">
+            <p>Last viewed</p>
+            <ChevronDownIcon className="text-white h-3 w-3 " />
+          </div>
+        </div>
       </div>
-      <div className="flex">
-        <div className="border-[rgb(68,68,68)] rounded-lg p-4 m-4 border">
-          <p>New design file</p>
-        </div>
-        <div className="border-[rgb(68,68,68)] rounded-lg p-4 m-4  border">
-          <p>New FigJam file</p>
-        </div>
-        <div className="border-[rgb(68,68,68)] rounded-lg p-4 m-4  border">
-          <p>Import file</p>
-        </div>
-      </div>
-      <div className="p-4 flex justify-between">
-        <div className="flex items-center space-x-2">
-          <p> Filter: All files </p>
-          <ChevronDownIcon className="text-white h-3 w-3 " />
-        </div>
-        <div className="flex items-center space-x-2">
-          <p>Sort: Last viewed</p>
-          <ChevronDownIcon className="text-white h-3 w-3 " />
-        </div>
-      </div>
+     
     </div>
   );
 }
