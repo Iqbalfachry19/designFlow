@@ -22,20 +22,6 @@ function Header() {
         <button className="border broder-white p-2 rounded-[6px] text-white">
           Import
         </button>
-        <div className="flex items-center space-x-2 relative">
-          <BellIcon className="text-white w-6 h-6" />
-          <div className="absolute bg-red-500 w-2 h-2 rounded-full top-0 right-1  z-10" />
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="h-7 w-7 relative">
-            <Image
-              src="https://api.dicebear.com/6.x/initials/png?seed=i&radius=50&backgroundColor=FFCD29&textColor=000000"
-              alt=""
-              fill
-            />
-          </div>
-          <ChevronDownIcon className="text-white h-3 w-3 " />
-        </div>
       </div>
     </div>
   );
