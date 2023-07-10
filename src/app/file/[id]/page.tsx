@@ -1,7 +1,8 @@
+import Canvas from '@/components/file/Canvas';
 import React from 'react';
 
 function page() {
-  return <div className="bg-[#1e1e1e] h-screen">page</div>;
+  return <Canvas />;
 }
 
 export default page;
