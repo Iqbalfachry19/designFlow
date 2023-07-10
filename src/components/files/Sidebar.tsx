@@ -6,9 +6,9 @@ import {
   GlobeAltIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
-import Searchbar from './Searchbar';
-import Logo from './Logo';
-import Avatar from './Avatar';
+import Searchbar from '../Searchbar';
+import Logo from '../Logo';
+import Avatar from '../Avatar';
 function Sidebar() {
   const [open, setOpen] = useState(false);
   const clickHandler = () => {
@@ -24,7 +24,7 @@ function Sidebar() {
         }
         onClick={clickHandler}
       >
-        <Avatar />
+        <Avatar withLogo />
       </div>
       {open && (
         <>

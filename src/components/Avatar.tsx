@@ -1,9 +1,16 @@
 import { BellIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import Image from 'next/image';
-function Avatar() {
+type AvatarProps = {
+  withLogo?: boolean;
+};
+function Avatar({ withLogo }: AvatarProps) {
   return (
-    <div className="flex  w-full justify-between">
+    <div
+      className={
+        withLogo ? 'flex w-full justify-between' : 'flex   justify-between'
+      }
+    >
       <div className="flex items-center space-x-2">
         <div className="h-7 w-7 relative">
           <Image
@@ -12,13 +19,21 @@ function Avatar() {
             fill
           />
         </div>
-        <p>Iqbal Fachry</p>
-        <ChevronDownIcon className="text-white h-3 w-3 " />
+        {withLogo && (
+          <>
+            <p>Iqbal Fachry</p>
+            <ChevronDownIcon className="text-white h-3 w-3 " />
+          </>
+        )}
       </div>
-      <div className="flex items-center space-x-2 relative">
-        <BellIcon className="text-white w-6 h-6" />
-        <div className="absolute bg-red-500 w-2 h-2 rounded-full top-0 right-1  z-10" />
-      </div>
+      {withLogo && (
+        <>
+          <div className="flex items-center space-x-2 relative">
+            <BellIcon className="text-white w-6 h-6" />
+            <div className="absolute bg-red-500 w-2 h-2 rounded-full top-0 right-1  z-10" />
+          </div>
+        </>
+      )}
     </div>
   );
 }
