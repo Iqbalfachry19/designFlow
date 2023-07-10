@@ -1,6 +1,8 @@
-import React from 'react';
-
-const Rectangle = ({ style }) => {
+import React, { CSSProperties } from 'react';
+interface RectangleProps {
+  style?: CSSProperties;
+}
+const Rectangle: React.FC<RectangleProps> = ({ style }) => {
   return (
     <div
       className="z-10 border"

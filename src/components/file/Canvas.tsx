@@ -1,15 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import Rectangle from './Rectangle';
 
 function Canvas() {
-  const [rectangles, setRectangles] = useState([]);
+  const [rectangles, setRectangles] = useState<{ x: number; y: number }[]>([]);
 
-  const handleCanvasClick = (event) => {
+  const handleCanvasClick = (event: MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = event;
 
-    const canvasRect = event.target.getBoundingClientRect();
+    const canvasRect = event.currentTarget.getBoundingClientRect();
     const offsetX = clientX - canvasRect.left;
     const offsetY = clientY - canvasRect.top;
     // Check if the new rectangle intersects with any existing rectangles
