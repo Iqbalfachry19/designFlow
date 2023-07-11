@@ -1,17 +1,38 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Logo from '../Logo';
 import { ChevronDownIcon, PlayIcon } from '@heroicons/react/24/outline';
 import Avatar from '../Avatar';
 
 const Header = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(1);
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index === activeIndex ? null : index);
+  };
+
+  const getClassName = (baseClassName: string, index: number) => {
+    return activeIndex === index
+      ? `${baseClassName} bg-blue-500`
+      : baseClassName;
+  };
   return (
     <div className="flex w-full h-12 border-b border-[#444]  justify-between">
-      <div className="flex space-x-2 items-center">
-        <div className="flex space-x-1   items-center">
+      <div className="flex  items-center">
+        <div
+          className={getClassName('flex space-x-1 items-center h-full', 0)}
+          onClick={() => handleClick(0)}
+        >
           <Logo />
           <ChevronDownIcon className="text-white h-3 w-3 " />
         </div>
-        <div className="flex space-x-1 items-center p-2 bg-blue-500 h-full">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-2',
+            1,
+          )}
+          onClick={() => handleClick(1)}
+        >
           <svg
             className="svg"
             width="18"
@@ -30,7 +51,13 @@ const Header = () => {
 
           <ChevronDownIcon className="text-white h-3 w-3 " />
         </div>
-        <div className="flex space-x-1 items-center p-2">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-2',
+            2,
+          )}
+          onClick={() => handleClick(2)}
+        >
           <svg
             className="svg"
             width="16"
@@ -48,7 +75,13 @@ const Header = () => {
           </svg>
           <ChevronDownIcon className="text-white h-3 w-3 " />
         </div>
-        <div className="flex space-x-1 items-center ">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-2',
+            3,
+          )}
+          onClick={() => handleClick(3)}
+        >
           <svg
             className="svg"
             width="18"
@@ -66,7 +99,13 @@ const Header = () => {
           </svg>
           <ChevronDownIcon className="text-white h-3 w-3 " />
         </div>
-        <div className="flex space-x-1 items-center p-2">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-2',
+            4,
+          )}
+          onClick={() => handleClick(4)}
+        >
           <svg
             className="svg"
             width="18"
@@ -84,7 +123,13 @@ const Header = () => {
           </svg>
           <ChevronDownIcon className="text-white h-3 w-3 " />
         </div>
-        <div className="flex space-x-2 items-center">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-4',
+            5,
+          )}
+          onClick={() => handleClick(5)}
+        >
           <svg
             className="svg"
             width="18"
@@ -101,7 +146,13 @@ const Header = () => {
             ></path>
           </svg>
         </div>
-        <div className="flex space-x-1 items-center p-2">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-4',
+            6,
+          )}
+          onClick={() => handleClick(6)}
+        >
           <svg
             className="svg"
             width="16"
@@ -118,7 +169,13 @@ const Header = () => {
             ></path>
           </svg>
         </div>
-        <div className="flex space-x-1 items-center p-2">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-4',
+            7,
+          )}
+          onClick={() => handleClick(7)}
+        >
           <svg
             className="svg"
             width="20"
@@ -135,7 +192,13 @@ const Header = () => {
             ></path>
           </svg>
         </div>
-        <div className="flex space-x-1 items-center p-2">
+        <div
+          className={getClassName(
+            'flex space-x-1   items-center h-full p-4',
+            8,
+          )}
+          onClick={() => handleClick(8)}
+        >
           <svg
             className="svg"
             width="20"
