@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import Logo from '../Logo';
 import { ChevronDownIcon, PlayIcon } from '@heroicons/react/24/outline';
 import Avatar from '../Avatar';
-
+import { useFigmaStore } from '../../store/figmaStore';
 const Header = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(1);
+  const activeIndex = useFigmaStore((state: any) => state.activeIndex);
+  const setActiveIndex = useFigmaStore((state: any) => state.setActiveIndex);
 
   const handleClick = (index: number) => {
     setActiveIndex(index === activeIndex ? null : index);

@@ -2,10 +2,11 @@
 
 import { useState, MouseEvent } from 'react';
 import Rectangle from './Rectangle';
+import { useFigmaStore } from '@/store/figmaStore';
 
 function Canvas() {
   const [rectangles, setRectangles] = useState<{ x: number; y: number }[]>([]);
-
+  const activeIndex = useFigmaStore((state: any) => state.activeIndex);
   const handleCanvasClick = (event: MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = event;
 
@@ -27,11 +28,14 @@ function Canvas() {
       setRectangles([...rectangles, newRectangle]);
     }
   };
-
+  const getCanvasCursor = () => {
+    return activeIndex === 3 ? 'crosshair' : 'url(/figmacursor.svg), auto';
+  };
   return (
     <div className="relative">
       <div
-        className="bg-[#1e1e1e] z-0 h-screen cursor-crosshair"
+        className="bg-[#1e1e1e] z-0 h-screen"
+        style={{ cursor: getCanvasCursor() }}
         onClick={handleCanvasClick}
       >
         {rectangles.map((rectangle, index) => (
