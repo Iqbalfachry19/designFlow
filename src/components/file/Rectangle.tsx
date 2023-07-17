@@ -1,8 +1,11 @@
 import React, { CSSProperties } from 'react';
+
 interface RectangleProps {
   style?: CSSProperties;
+  onClick?: () => void;
 }
-const Rectangle: React.FC<RectangleProps> = ({ style }) => {
+
+const Rectangle: React.FC<RectangleProps> = ({ style, onClick }) => {
   return (
     <div
       className="z-10 border"
@@ -12,6 +15,7 @@ const Rectangle: React.FC<RectangleProps> = ({ style }) => {
         backgroundColor: '#d9d9d9',
         ...style,
       }}
+      onClick={onClick}
     />
   );
 };
