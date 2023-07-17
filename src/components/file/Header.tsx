@@ -9,7 +9,12 @@ const Header = () => {
   const setActiveIndex = useFigmaStore((state: any) => state.setActiveIndex);
 
   const handleClick = (index: number) => {
-    setActiveIndex(index === activeIndex ? null : index);
+    if (index === activeIndex) {
+      // Clicked on the same active index, do nothing
+      return;
+    }
+
+    setActiveIndex(index);
   };
 
   const getClassName = (baseClassName: string, index: number) => {

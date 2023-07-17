@@ -10,6 +10,27 @@ function Canvas() {
   const [selectedRectangleIndex, setSelectedRectangleIndex] = useState<
     number | null
   >(null);
+  const [hoveredRectangleIndex, setHoveredRectangleIndex] = useState<
+    number | null
+  >(null);
+  const handleRectangleHover = (index: number) => {
+    if (activeIndex === 1) {
+      if (hoveredRectangleIndex === index) {
+        // Already hovering over the rectangle, do nothing
+        return;
+      } else {
+        // Hovering over a different rectangle, update the hovered rectangle index
+        setHoveredRectangleIndex(index);
+      }
+    }
+  };
+
+  const handleRectangleLeave = () => {
+    if (activeIndex === 1) {
+      // Stop hovering over the rectangle, clear the hovered rectangle index
+      setHoveredRectangleIndex(null);
+    }
+  };
   const canvasRef = useRef<HTMLDivElement | null>(null);
   const handleRectangleClick = (index: number) => {
     if (activeIndex === 1) {
@@ -86,9 +107,14 @@ function Canvas() {
               left: `${rectangle.x}px`,
               top: `${rectangle.y}px`,
               border:
-                selectedRectangleIndex === index ? '2px solid blue' : 'none',
+                selectedRectangleIndex === index ||
+                hoveredRectangleIndex === index
+                  ? '3px solid #0c8ce9'
+                  : 'none',
             }}
             onClick={() => handleRectangleClick(index)}
+            onMouseEnter={() => handleRectangleHover(index)}
+            onMouseLeave={handleRectangleLeave}
           />
         ))}
       </div>
