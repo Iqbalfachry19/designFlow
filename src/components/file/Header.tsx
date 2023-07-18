@@ -26,7 +26,7 @@ const Header = () => {
     <div className="flex w-full h-12 border-b border-[#444]  justify-between">
       <div className="flex  items-center">
         <div
-          className={getClassName('flex space-x-1 items-center h-full', 0)}
+          className={getClassName('flex space-x-1 items-center h-full pr-2', 0)}
           onClick={() => handleClick(0)}
         >
           <Logo />
