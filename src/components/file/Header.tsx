@@ -4,10 +4,16 @@ import Logo from '../Logo';
 import { ChevronDownIcon, PlayIcon } from '@heroicons/react/24/outline';
 import Avatar from '../Avatar';
 import { useFigmaStore } from '../../store/figmaStore';
+import Modal from './Modal';
 const Header = () => {
   const activeIndex = useFigmaStore((state: any) => state.activeIndex);
   const setActiveIndex = useFigmaStore((state: any) => state.setActiveIndex);
+  const [showModal, setShowModal] = useState(false);
 
+  // Step 3: Function to toggle the modal visibility
+  const handleShareClick = () => {
+    setShowModal(!showModal);
+  };
   const handleClick = (index: number) => {
     if (index === activeIndex) {
       // Clicked on the same active index, do nothing
@@ -228,7 +234,10 @@ const Header = () => {
       </div>
       <div className="flex space-x-2">
         <Avatar />
-        <button className="bg-blue-500 p-2 m-2 flex items-center text-sm rounded-[6px] text-white">
+        <button
+          onClick={handleShareClick}
+          className="bg-blue-500 p-2 m-2 flex items-center text-sm rounded-[6px] text-white"
+        >
           share
         </button>
         <div className="w-14 h-8 bg-[#444] rounded-full m-2 flex items-center">
@@ -245,6 +254,13 @@ const Header = () => {
           <ChevronDownIcon className="text-white h-3 w-3 " />
         </div>
       </div>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          {/* Modal content here */}
+          <h2 className="text-xl font-bold mb-4">Share Design</h2>
+          <p>Put your share options and other content here.</p>
+        </Modal>
+      )}
     </div>
   );
 };
