@@ -9,7 +9,11 @@ const Header = () => {
   const activeIndex = useFigmaStore((state: any) => state.activeIndex);
   const setActiveIndex = useFigmaStore((state: any) => state.setActiveIndex);
   const [showModal, setShowModal] = useState(false);
+  const [isDevMode, setIsDevMode] = useState(false);
 
+  const handleDivClick = () => {
+    setIsDevMode((prev) => !prev);
+  };
   // Step 3: Function to toggle the modal visibility
   const handleShareClick = () => {
     setShowModal(!showModal);
@@ -25,7 +29,7 @@ const Header = () => {
 
   const getClassName = (baseClassName: string, index: number) => {
     return activeIndex === index
-      ? `${baseClassName} bg-blue-500`
+      ? `${baseClassName} ${isDevMode?"bg-[#178F51]":"bg-blue-500"} `
       : baseClassName;
   };
   return (
@@ -231,20 +235,27 @@ const Header = () => {
       <div className="flex items-center space-x-2">
         <p className="text-white">Drafts / Untitled</p>
         <ChevronDownIcon className="text-white h-3 w-3 " />
+        {isDevMode && (<button className='text-white bg-[#444] text-sm p-2 m-2  items-center rounded-md'>Dev Mode</button>)}
+      
       </div>
       <div className="flex space-x-2">
         <Avatar />
         <button
           onClick={handleShareClick}
-          className="bg-blue-500 p-2 m-2 flex items-center text-sm rounded-[6px] text-white"
+          className={`${isDevMode?"bg-[#178F51]":"bg-blue-500"} p-2 m-2 flex items-center text-sm rounded-[6px] text-white`}
         >
           share
         </button>
-        <div className="w-14 h-8 bg-[#444] rounded-full m-2 flex items-center">
-          <div className="w-6 h-6 rounded-full bg-[#2c2c2c] ml-1 flex items-center justify-center">
-            <p className="text-white text-xs">&lt;/&gt;</p>
-          </div>
-        </div>
+        <div
+      className={`w-14 h-8 bg-[#444] rounded-full m-2 flex items-center cursor-pointer `}
+      onClick={handleDivClick}
+    >
+      <div className={`w-6 h-6 rounded-full bg-[#2c2c2c] ml-1 flex items-center justify-center transition-all ${
+        isDevMode ? 'translate-x-6 bg-[#178F51]' : 'translate-x-0'
+      }`}>
+        <p className="text-white text-xs">&lt;/&gt;</p>
+      </div>
+    </div>
         <div className="text-white flex items-center space-x-1">
           <PlayIcon className="text-white h-5 w-5 " />
           <ChevronDownIcon className="text-white h-3 w-3 " />
