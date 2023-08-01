@@ -1,4 +1,4 @@
-import { EyeIcon } from '@heroicons/react/24/outline';
+import { AdjustmentsVerticalIcon, EyeIcon, PlusIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 
 function RightSidebar() {
@@ -24,21 +24,21 @@ function RightSidebar() {
         <div className="flex items-center justify-between ">
           <p className="text-sm">Local variables</p>
 
-          <EyeIcon className="w-4 h-4" />
+          <AdjustmentsVerticalIcon className="w-4 h-4" />
         </div>
       </div>
       <div className="text-white text-sm p-2 border-b border-[#444]">
         <div className="flex items-center justify-between ">
           <p className="text-sm">Local styles</p>
 
-          <EyeIcon className="w-4 h-4" />
+          <PlusIcon className="w-4 h-4" />
         </div>
       </div>
       <div className="text-white text-sm p-2 border-b border-[#444]">
         <div className="flex items-center justify-between ">
           <p className="text-sm">Export</p>
 
-          <EyeIcon className="w-4 h-4" />
+          <PlusIcon className="w-4 h-4" />
         </div>
       </div>
     </div>
