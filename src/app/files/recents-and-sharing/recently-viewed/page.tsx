@@ -1,6 +1,7 @@
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -44,11 +45,11 @@ function page() {
           {Array(10)
             .fill(0)
             .map((_, index) => (
-              <div key={index} className="h-44  w-40">
+              <Link href="/file/a" key={index} className="h-44  w-40">
                 <div className="w-80 h-44 rounded-lg bg-[#E5E5E5] "></div>
                 <p>heroicons</p>
                 <p className="text-xs">In Drafts · Edited 1 hour ago</p>
-              </div>
+              </Link>
             ))}
         </div>
       </div>
