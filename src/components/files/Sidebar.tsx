@@ -9,7 +9,7 @@ import { useState } from "react";
 import Searchbar from "../Searchbar";
 import Logo from "../Logo";
 import Avatar from "../Avatar";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 function Sidebar() {
   const [open, setOpen] = useState(false);
   const { data } = useSession();
@@ -34,6 +34,7 @@ function Sidebar() {
             <p className="select-none">{data?.user?.email}</p>
             <div>
               <p className="select-none">{data?.user?.name}</p>
+              <p onClick={() => signOut({ callbackUrl: "/" })}>Logout</p>
             </div>
           </div>
         </>
