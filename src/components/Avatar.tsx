@@ -1,14 +1,16 @@
-import { BellIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import React from 'react';
-import Image from 'next/image';
+import { BellIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import React from "react";
+import Image from "next/image";
+import { useSession } from "next-auth/react";
 type AvatarProps = {
   withLogo?: boolean;
 };
 function Avatar({ withLogo }: AvatarProps) {
+  const { data } = useSession();
   return (
     <div
       className={
-        withLogo ? 'flex w-full justify-between' : 'flex   justify-between'
+        withLogo ? "flex w-full justify-between" : "flex   justify-between"
       }
     >
       <div className="flex items-center space-x-2">
@@ -21,7 +23,7 @@ function Avatar({ withLogo }: AvatarProps) {
         </div>
         {withLogo && (
           <>
-            <p>Iqbal Fachry</p>
+            <p>{data?.user?.name}</p>
             <ChevronDownIcon className="text-white h-3 w-3 " />
           </>
         )}

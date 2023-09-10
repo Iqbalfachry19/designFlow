@@ -1,16 +1,18 @@
-'use client';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+"use client";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import {
   ClockIcon,
   DocumentIcon,
   GlobeAltIcon,
-} from '@heroicons/react/24/outline';
-import { useState } from 'react';
-import Searchbar from '../Searchbar';
-import Logo from '../Logo';
-import Avatar from '../Avatar';
+} from "@heroicons/react/24/outline";
+import { useState } from "react";
+import Searchbar from "../Searchbar";
+import Logo from "../Logo";
+import Avatar from "../Avatar";
+import { useSession } from "next-auth/react";
 function Sidebar() {
   const [open, setOpen] = useState(false);
+  const { data } = useSession();
   const clickHandler = () => {
     setOpen(!open);
   };
@@ -19,8 +21,8 @@ function Sidebar() {
       <div
         className={
           open
-            ? 'active flex items-center border-[#444] group hover:cursor-default  w-full [&.active]:bg-black hover:bg-black p-2 space-x-2 border-r'
-            : 'flex items-center border-[#444] group hover:cursor-default  w-full  [&.active]:bg-black hover:bg-black p-2 space-x-2 border-r'
+            ? "active flex items-center border-[#444] group hover:cursor-default  w-full [&.active]:bg-black hover:bg-black p-2 space-x-2 border-r"
+            : "flex items-center border-[#444] group hover:cursor-default  w-full  [&.active]:bg-black hover:bg-black p-2 space-x-2 border-r"
         }
         onClick={clickHandler}
       >
@@ -29,9 +31,9 @@ function Sidebar() {
       {open && (
         <>
           <div className="absolute top-16 p-2 bg-[#222]">
-            <p className="select-none">iqbal.fachry19@gmail.com</p>
+            <p className="select-none">{data?.user?.email}</p>
             <div>
-              <p className="select-none">Iqbal Fachry</p>
+              <p className="select-none">{data?.user?.name}</p>
             </div>
           </div>
         </>
