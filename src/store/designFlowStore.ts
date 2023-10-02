@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-interface figmaState {
+interface DesignFlowState {
   
 }
-export const useFigmaStore = create((set) => ({
+export const useDesignFlowStore = create((set) => ({
   activeIndex: 1,
   setActiveIndex: (newValue: any) => set({ activeIndex: newValue }),
 }));

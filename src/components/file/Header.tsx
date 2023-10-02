@@ -1,13 +1,15 @@
-'use client';
-import React, { useState } from 'react';
-import Logo from '../Logo';
-import { ChevronDownIcon, PlayIcon } from '@heroicons/react/24/outline';
-import Avatar from '../Avatar';
-import { useFigmaStore } from '../../store/figmaStore';
-import Modal from './Modal';
+"use client";
+import React, { useState } from "react";
+import Logo from "../Logo";
+import { ChevronDownIcon, PlayIcon } from "@heroicons/react/24/outline";
+import Avatar from "../Avatar";
+import { useDesignFlowStore } from "../../store/figmaStore";
+import Modal from "./Modal";
 const Header = () => {
-  const activeIndex = useFigmaStore((state: any) => state.activeIndex);
-  const setActiveIndex = useFigmaStore((state: any) => state.setActiveIndex);
+  const activeIndex = useDesignFlowStore((state: any) => state.activeIndex);
+  const setActiveIndex = useDesignFlowStore(
+    (state: any) => state.setActiveIndex
+  );
   const [showModal, setShowModal] = useState(false);
   const [isDevMode, setIsDevMode] = useState(false);
 
@@ -29,14 +31,14 @@ const Header = () => {
 
   const getClassName = (baseClassName: string, index: number) => {
     return activeIndex === index
-      ? `${baseClassName} ${isDevMode?"bg-[#178F51]":"bg-blue-500"} `
+      ? `${baseClassName} ${isDevMode ? "bg-[#178F51]" : "bg-blue-500"} `
       : baseClassName;
   };
   return (
     <div className="flex w-full h-12 border-b border-[#444]  justify-between">
       <div className="flex  items-center">
         <div
-          className={getClassName('flex space-x-1 items-center h-full pr-2', 0)}
+          className={getClassName("flex space-x-1 items-center h-full pr-2", 0)}
           onClick={() => handleClick(0)}
         >
           <Logo />
@@ -44,8 +46,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-2',
-            1,
+            "flex space-x-1   items-center h-full p-2",
+            1
           )}
           onClick={() => handleClick(1)}
         >
@@ -69,8 +71,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-2',
-            2,
+            "flex space-x-1   items-center h-full p-2",
+            2
           )}
           onClick={() => handleClick(2)}
         >
@@ -93,8 +95,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-2',
-            3,
+            "flex space-x-1   items-center h-full p-2",
+            3
           )}
           onClick={() => handleClick(3)}
         >
@@ -117,8 +119,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-2',
-            4,
+            "flex space-x-1   items-center h-full p-2",
+            4
           )}
           onClick={() => handleClick(4)}
         >
@@ -141,8 +143,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-4',
-            5,
+            "flex space-x-1   items-center h-full p-4",
+            5
           )}
           onClick={() => handleClick(5)}
         >
@@ -164,8 +166,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-4',
-            6,
+            "flex space-x-1   items-center h-full p-4",
+            6
           )}
           onClick={() => handleClick(6)}
         >
@@ -187,8 +189,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-4',
-            7,
+            "flex space-x-1   items-center h-full p-4",
+            7
           )}
           onClick={() => handleClick(7)}
         >
@@ -210,8 +212,8 @@ const Header = () => {
         </div>
         <div
           className={getClassName(
-            'flex space-x-1   items-center h-full p-4',
-            8,
+            "flex space-x-1   items-center h-full p-4",
+            8
           )}
           onClick={() => handleClick(8)}
         >
@@ -235,27 +237,34 @@ const Header = () => {
       <div className="flex items-center space-x-2">
         <p className="text-white">Drafts / Untitled</p>
         <ChevronDownIcon className="text-white h-3 w-3 " />
-        {isDevMode && (<button className='text-white bg-[#444] text-sm p-2 m-2  items-center rounded-md'>Dev Mode</button>)}
-      
+        {isDevMode && (
+          <button className="text-white bg-[#444] text-sm p-2 m-2  items-center rounded-md">
+            Dev Mode
+          </button>
+        )}
       </div>
       <div className="flex space-x-2">
         <Avatar />
         <button
           onClick={handleShareClick}
-          className={`${isDevMode?"bg-[#178F51]":"bg-blue-500"} p-2 m-2 flex items-center text-sm rounded-[6px] text-white`}
+          className={`${
+            isDevMode ? "bg-[#178F51]" : "bg-blue-500"
+          } p-2 m-2 flex items-center text-sm rounded-[6px] text-white`}
         >
           share
         </button>
         <div
-      className={`w-14 h-8 bg-[#444] rounded-full m-2 flex items-center cursor-pointer `}
-      onClick={handleDivClick}
-    >
-      <div className={`w-6 h-6 rounded-full bg-[#2c2c2c] ml-1 flex items-center justify-center transition-all ${
-        isDevMode ? 'translate-x-6 bg-[#178F51]' : 'translate-x-0'
-      }`}>
-        <p className="text-white text-xs">&lt;/&gt;</p>
-      </div>
-    </div>
+          className={`w-14 h-8 bg-[#444] rounded-full m-2 flex items-center cursor-pointer `}
+          onClick={handleDivClick}
+        >
+          <div
+            className={`w-6 h-6 rounded-full bg-[#2c2c2c] ml-1 flex items-center justify-center transition-all ${
+              isDevMode ? "translate-x-6 bg-[#178F51]" : "translate-x-0"
+            }`}
+          >
+            <p className="text-white text-xs">&lt;/&gt;</p>
+          </div>
+        </div>
         <div className="text-white flex items-center space-x-1">
           <PlayIcon className="text-white h-5 w-5 " />
           <ChevronDownIcon className="text-white h-3 w-3 " />

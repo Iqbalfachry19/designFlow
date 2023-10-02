@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useState, MouseEvent, useEffect, useRef } from 'react';
-import Rectangle from './Rectangle';
-import { useFigmaStore } from '@/store/figmaStore';
+import { useState, MouseEvent, useEffect, useRef } from "react";
+import Rectangle from "./Rectangle";
+import { useDesignFlowStore } from "@/store/designFlowStore";
 
 function Canvas() {
   const [rectangles, setRectangles] = useState<{ x: number; y: number }[]>([]);
-  const activeIndex = useFigmaStore((state: any) => state.activeIndex);
+  const activeIndex = useDesignFlowStore((state: any) => state.activeIndex);
   const [selectedRectangleIndex, setSelectedRectangleIndex] = useState<
     number | null
   >(null);
@@ -48,7 +48,7 @@ function Canvas() {
     if (activeIndex === 1) {
       if (selectedRectangleIndex !== null) {
         const clickedRectangleIndex = rectangles.findIndex(
-          (_, index) => index === selectedRectangleIndex,
+          (_, index) => index === selectedRectangleIndex
         );
 
         if (
@@ -83,13 +83,13 @@ function Canvas() {
 
         setRectangles([...rectangles, newRectangle]);
         setSelectedRectangleIndex(rectangles.length);
-        useFigmaStore.setState({ activeIndex: 1 });
+        useDesignFlowStore.setState({ activeIndex: 1 });
       }
     }
   };
 
   const getCanvasCursor = () => {
-    return activeIndex === 3 ? 'crosshair' : 'url(/figmacursor.svg), auto';
+    return activeIndex === 3 ? "crosshair" : "url(/designflowcursor.svg), auto";
   };
   return (
     <div className="relative">
@@ -103,14 +103,14 @@ function Canvas() {
           <Rectangle
             key={index}
             style={{
-              position: 'absolute',
+              position: "absolute",
               left: `${rectangle.x}px`,
               top: `${rectangle.y}px`,
               border:
                 selectedRectangleIndex === index ||
                 hoveredRectangleIndex === index
-                  ? '3px solid #0c8ce9'
-                  : 'none',
+                  ? "3px solid #0c8ce9"
+                  : "none",
             }}
             onClick={() => handleRectangleClick(index)}
             onMouseEnter={() => handleRectangleHover(index)}
