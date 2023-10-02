@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Logo from "../Logo";
 import { ChevronDownIcon, PlayIcon } from "@heroicons/react/24/outline";
 import Avatar from "../Avatar";
-import { useDesignFlowStore } from "../../store/figmaStore";
+import { useDesignFlowStore } from "../../store/designFlowStore";
 import Modal from "./Modal";
 const Header = () => {
   const activeIndex = useDesignFlowStore((state: any) => state.activeIndex);
