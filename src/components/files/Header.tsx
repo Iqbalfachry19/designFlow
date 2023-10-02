@@ -1,10 +1,10 @@
-import { BellIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import { BellIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
-} from '@heroicons/react/24/solid';
+} from "@heroicons/react/24/solid";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 function Header() {
   return (
@@ -17,7 +17,7 @@ function Header() {
           + Design file
         </button>
         <button className="bg-purple-500 p-2 rounded-[6px] text-white">
-          + FigJam board
+          + FlowJam board
         </button>
         <button className="border broder-white p-2 rounded-[6px] text-white">
           Import
